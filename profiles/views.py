@@ -10,8 +10,8 @@ class ProfileList(generics.ListAPIView):
     serializer_class = ProfileSerializer
     queryset = Profile.objects.annotate()
     #filter_backends = [
-    #    filters.OrderingFilter,
-    #    DjangoFilterBackend
+        #filters.OrderingFilter,
+        #DjangoFilterBackend
     #]
     #ordering_fields = ['posts_count']
 
@@ -20,5 +20,5 @@ class ProfileDetail(generics.RetrieveUpdateAPIView):
     permission_classes = [IsOwnerOrReadOnly]
     serializer_class = ProfileSerializer
     #queryset = Profile.objects.annotate(
-    #    posts_count=Count('owner__post', distinct=True),
+        #posts_count=Count('owner__post', distinct=True),
     #).order_by('-created_at')
