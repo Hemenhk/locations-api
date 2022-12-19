@@ -2,7 +2,7 @@ from rest_framework import serializers
 from .models import Post
 
 
-class ProfileSerializer(serializers.ModelSerializer):
+class PostSerializer(serializers.ModelSerializer):
     owner = serializers.ReadOnlyField(source='owner.username')
     is_owner = serializers.SerializerMethodField()
     profile_id = serializers.ReadOnlyField(source='owner.profile.id')
@@ -13,8 +13,9 @@ class ProfileSerializer(serializers.ModelSerializer):
         return request.user == obj.owner
 
     class Meta:
-        model = Profile
+        model = Post
         fields = [
             'id', 'owner', 'created_at', 'updated_at',
-            'content', 'image', 'is_owner', 'profile_id', 'profile_image'
+            'content', 'image', 'is_owner', 'profile_id', 'profile_image',
+            'image_filter'
         ]
