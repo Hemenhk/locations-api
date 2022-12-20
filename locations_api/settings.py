@@ -69,6 +69,7 @@ INSTALLED_APPS = [
     'dj_rest_auth.registration',
     'profiles',
     'posts',
+    'reviews',
 ]
 
 SITE_ID = 1
