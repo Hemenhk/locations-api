@@ -15,11 +15,11 @@ class ReviewSerializer(serializers.ModelSerializer):
         request = self.context['request']
         return request.user == obj.owner
     
-    # natural time for comments created
+    # natural time for reviews created
     def get_created_at(self, obj):
         return naturaltime(obj.created_at)
 
-    # natural time for comments updated
+    # natural time for reviews updated
     def get_updated_at(self, obj):
         return naturaltime(obj.updated_at)
 
@@ -32,7 +32,7 @@ class ReviewSerializer(serializers.ModelSerializer):
         ]
 
 
-class CommentDetailSerializer(CommentSerializer):
+class ReviewDetailSerializer(ReviewSerializer):
     """
     Serializer for the comment model used in Detail view
     Post is a read only field so that we don't have to set it on each update
