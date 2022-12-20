@@ -70,6 +70,7 @@ INSTALLED_APPS = [
     'profiles',
     'posts',
     'reviews',
+    'ratings',
 ]
 
 SITE_ID = 1
