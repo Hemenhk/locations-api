@@ -76,6 +76,15 @@ INSTALLED_APPS = [
 
 SITE_ID = 1
 
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [( 
+        'rest_framework.authentication.SessionAuthentication' 
+        if 'DEV' in os.environ 
+        else 'dj_rest_auth.jwt_auth.JWTCookieAuthentication'
+    )]
+}
+
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -121,8 +130,6 @@ else:
     DATABASES = {
         'default': dj_database_url.parse(os.environ.get("DATABASE_URL"))
     }
-
-
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
 
