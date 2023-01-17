@@ -1,3 +1,4 @@
+from django.db.models import Count
 from rest_framework import generics, permissions, filters
 from django_filters.rest_framework import DjangoFilterBackend
 from locations_api.permissions import IsOwnerOrReadOnly
@@ -13,6 +14,8 @@ class PostList(generics.ListCreateAPIView):
     serializer_class = PostSerializer
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
     queryset = Post.objects.annotate(
+        ratings_count=Count('ratings', distinct=True),
+        reviews_count=Count('review', distinct=True)
     ).order_by('-created_at')
     filter_backends = [
         filters.OrderingFilter,
@@ -21,10 +24,17 @@ class PostList(generics.ListCreateAPIView):
     ]
     filterset_fields = [
         'owner__profile',
+        'ratings__owner__profile',
+        'owner__profile',
     ]
     search_fields = [
         'owner__username',
-        'title',
+        'title'
+    ],
+    ordering_fields = [
+        'ratings_count',
+        'reviews_count',
+        'ratings__created_at'
     ]
 
     def perform_create(self, serializer):
@@ -38,4 +48,6 @@ class PostDetail(generics.RetrieveUpdateDestroyAPIView):
     serializer_class = PostSerializer
     permission_classes = [IsOwnerOrReadOnly]
     queryset = Post.objects.annotate(
+        ratings_count=Count('ratings', distinct=True),
+        reviews_count=Count('review', distinct=True)
     ).order_by('-created_at')
