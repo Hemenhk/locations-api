@@ -23,18 +23,17 @@ class PostList(generics.ListCreateAPIView):
         DjangoFilterBackend,
     ]
     filterset_fields = [
-        'owner__profile',
         'ratings__owner__profile',
         'owner__profile',
     ]
     search_fields = [
         'owner__username',
-        'title'
-    ],
+        'title',
+    ]
     ordering_fields = [
         'ratings_count',
         'reviews_count',
-        'ratings__created_at'
+        'ratings__created_at',
     ]
 
     def perform_create(self, serializer):
