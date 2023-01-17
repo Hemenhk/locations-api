@@ -1,12 +1,15 @@
 from rest_framework import serializers
 from .models import Post
-
+from ratings.models import Rating
 
 class PostSerializer(serializers.ModelSerializer):
     owner = serializers.ReadOnlyField(source='owner.username')
     is_owner = serializers.SerializerMethodField()
     profile_id = serializers.ReadOnlyField(source='owner.profile.id')
     profile_image = serializers.ReadOnlyField(source='owner.profile.image.url')
+    rating_id = serializers.SerializerMethodField()
+    ratings_count = serializers.ReadOnlyField()
+
 
     def validate_image(self, value):
         if value.size > 2 * 1024 * 1024:
@@ -30,5 +33,5 @@ class PostSerializer(serializers.ModelSerializer):
         fields = [
             'id', 'owner', 'created_at', 'updated_at',
             'content', 'image', 'is_owner', 'profile_id', 'profile_image',
-            'image_filter', 'title',
+            'image_filter', 'title', 'rating_id', 'ratings_count',
         ]
