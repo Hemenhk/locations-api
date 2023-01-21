@@ -11,7 +11,7 @@ class Post(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     title = models.CharField(max_length=255)
-    price = models.CharField(max_length=25, default=0)
+    price = models.TextField()
     contact = models.TextField()
     content = models.TextField()
     image = models.ImageField(
