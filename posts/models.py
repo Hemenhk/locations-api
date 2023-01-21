@@ -12,8 +12,8 @@ class Post(models.Model):
     updated_at = models.DateTimeField(auto_now=True)
     title = models.CharField(max_length=255)
     cost = models.CharField(max_length=25, default=0)
-    price = models.CharField(max_length=255)
-    contact = models.CharField(max_length=255)
+    price = models.CharField(max_length=300, default='')
+    contact = models.CharField(max_length=300, default='')
     content = models.TextField()
     image = models.ImageField(
         upload_to='images/', default='../default_post_kh6p7i', blank=True
