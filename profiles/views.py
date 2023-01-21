@@ -8,7 +8,9 @@ from .serializers import ProfileSerializer
 
 class ProfileList(generics.ListAPIView):
     serializer_class = ProfileSerializer
-    queryset = Profile.objects.annotate()
+    queryset = Profile.objects.annotate(
+        posts_count=Count('owner__post', distinct=True),
+    ).order_by('-created_at')
     filter_backends = [
         filters.OrderingFilter,
         DjangoFilterBackend
