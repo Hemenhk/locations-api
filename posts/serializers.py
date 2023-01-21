@@ -44,5 +44,5 @@ class PostSerializer(serializers.ModelSerializer):
             'id', 'owner', 'created_at', 'updated_at',
             'content', 'image', 'is_owner', 'profile_id', 'profile_image',
             'image_filter', 'title', 'rating_id', 'ratings_count', 
-            'reviews_count'
+            'reviews_count', 'price', 'contact'
         ]

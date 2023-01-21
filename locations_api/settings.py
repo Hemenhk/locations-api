@@ -13,6 +13,7 @@ import re
 from pathlib import Path
 import os
 import dj_database_url
+from django.contrib.messages import constants as messages
 
 if os.path.exists('env.py'):
     import env
@@ -101,6 +102,14 @@ INSTALLED_APPS = [
 ]
 
 SITE_ID = 1
+
+MESSAGE_TAGS = {
+    messages.DEBUG: 'info',
+    messages.INFO: 'info',
+    messages.SUCCESS: 'success',
+    messages.WARNING: 'warning',
+    messages.ERROR: 'error',
+}
 
 MIDDLEWARE = [
     'corsheaders.middleware.CorsMiddleware',
