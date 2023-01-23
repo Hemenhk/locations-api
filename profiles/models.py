@@ -11,8 +11,6 @@ class Profile(models.Model):
     owner = models.OneToOneField(User, on_delete=models.CASCADE)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateField(auto_now=True)
-    # As this is a business app, the email field is required for user safety
-    email = models.EmailField(max_length=300)
     # As this is a business app, the name field is required for user safety
     name = models.CharField(max_length=300)
     # As this is a business app, the content field is required for user safety
