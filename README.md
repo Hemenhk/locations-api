@@ -1,5 +1,7 @@
 # Locations
 
+[Return to the README.md file](https://github.com/Hemenhk/locations-api/blob/main/README.md)  
+
 ![Locations mockup images](assets/readme/api%20home%20page.png)
 
 Locations API is an application based on Django Rest Framework. It is the back-end portion of my final project for Code Institute.
@@ -138,7 +140,7 @@ The databse model was designed using [drawsql](https://drawsql.app/) The type of
 
 ## Testing
 
-The testing documentation for this project can be found [here](https://github.com/Hemenhk/locations/blob/main/TESTING.md)
+The testing documentation for this project can be found [here](https://github.com/Hemenhk/locations-api/blob/main/TESTING.md)
 
 ## Deployment
 
@@ -177,8 +179,17 @@ This project is deployed using Heroku, with all static files being uploaded to C
 2. Press "Create new app", and select the desired app name and the region of which you are located, then press "Create app".
 3. Press the "Deploy" tab and click on "GitHub" in the "Deployment method" field.
 4. In the "Connect to GitHub" section select your profile and search for the repository. When the repository appears, click on "Connect".
-5. When the connection is successful, scroll down to the "Manual deplpoy" section and click on "Deploy Branch".
-6. When the app is successfully deployed, press "Open app" to see the final application.
+5. Go to "Settings" and scroll down to "Config Vars", and click "Reveal Config Vars".
+6. Here fill in the following key & values:
+    1. ALLOWED_HOST = https://locations-p5.herokuapp.com/.
+    2. CLIENT_ORIGIN = https://locations-p5.herokuapp.com.
+    3. CLIENT_ORIGIN_DEV = https://3000-hemenhk-locations-52paoqmtok9.ws-eu83.gitpod.io/ (this value may change during the developing process).
+    4. CLOUDINART_URL = cloudinary://(the value beyond is private).
+    5. DATABASE_URL = postgres://(the value beyond is private).
+    7. SECRET_KEY = (this value is private).
+7. After all config vars have been filled make sure "Buildpacks" is set to "heroku/python".
+8. Make your way to "Deploy" and scroll down to "Manual deploy".
+9. Press "Deploy branch" and when the build is finished, open the app.
 
 ## Credits
 
