@@ -2,6 +2,10 @@ from django.contrib.humanize.templatetags.humanize import naturaltime
 from rest_framework import serializers
 from .models import Review
 
+"""
+This code was borrowed from Code Institute's Django Rest Framework Project
+"""
+
 
 class ReviewSerializer(serializers.ModelSerializer):
     owner = serializers.ReadOnlyField(source='owner.username')

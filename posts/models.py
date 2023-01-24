@@ -1,6 +1,9 @@
 from django.db import models
 from django.contrib.auth.models import User
 
+"""
+This code was borrowed from Code Institute's Django Rest Framework Project
+"""
 
 class Post(models.Model):
     """

@@ -2,6 +2,10 @@ from django.db import IntegrityError
 from rest_framework import serializers
 from .models import Rating
 
+"""
+This code was borrowed from Code Institute's Django Rest Framework Project
+"""
+
 
 class RatingSerializer(serializers.ModelSerializer):
     """

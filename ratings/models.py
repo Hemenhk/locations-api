@@ -2,6 +2,10 @@ from django.db import models
 from django.contrib.auth.models import User
 from posts.models import Post
 
+"""
+This code was borrowed from Code Institute's Django Rest Framework Project
+"""
+
 
 class Rating(models.Model):
     """

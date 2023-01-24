@@ -2,6 +2,10 @@ from rest_framework import serializers
 from .models import Post
 from ratings.models import Rating
 
+"""
+This code was borrowed from Code Institute's Django Rest Framework Project
+"""
+
 
 class PostSerializer(serializers.ModelSerializer):
     owner = serializers.ReadOnlyField(source='owner.username')
